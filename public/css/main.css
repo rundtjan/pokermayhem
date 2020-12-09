@@ -16,10 +16,6 @@ p {
 
 /****** Logo Div Styling ******/
 
-img {
-	margin: 20px auto 0 auto;
-	display: block;
-}
 
 .clementine-text { /* Styling for the Clementine.js text */
 	padding: 0;

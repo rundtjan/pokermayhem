@@ -19,15 +19,19 @@ var river = [];
 var vastaavuus = {};
 
 var setHandPw = (hand, pw) => {
+    if (vastaavuus[pw] == null){
     vastaavuus[pw] = hand
+    return true
+    } else
+    {return false}
 }
 
 var shuffle = () => {
     packIndex = [0];
-    hands.length = 0;
-    flop.length = 0;
-    turn.length = 0;
-    river.length = 0;
+    hands = [];
+    flop = [];
+    turn = [];
+    river = [];
     
    	var currentIndex = pack.length;
 	   var temporaryValue, randomIndex;

@@ -3,7 +3,7 @@
 <html>
 
    <head>
-      <title>Pokermayhem</title>
+      <title>Clementine.js - The elegant and lightweight full-stack boilerplate.</title>
       <link href="http://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet" type="text/css">
       <link href="/public/css/main.css" rel="stylesheet" type="text/css">  
    </head>
@@ -16,17 +16,17 @@
       <div class="container">
          <label for="pw">Password:</label>
          <input type="text" id="pw" name="pw">
-         <button class="btn btn-delete" id="pwbutton">Send</button>
+         <button class="btn btn-delete" id="pwbutton" onclick="setPw()">Send</button>
          <br />
          <br />
          <p>Your cards are: <span id="owncards"></span></p>
          <p>---------------------------------------------</p>
          <p id="flop">The flop is: <span id="flopspan"></span></p>
          <p id="turn">The turn is: <span id="turnspan"></span></p>
-         <p id="river"><span id="riverspan"></span></p>
+         <p id="river">The river is: <span id="river"></span></p>
 
          <div class="btn-container">
-            <button type="submit" class="btn btn-add" id="refresh">Refresh</button>
+            <button type="submit" class="btn btn-add" onclick="getCards()">Refresh</button>
          </div>
 
       </div>

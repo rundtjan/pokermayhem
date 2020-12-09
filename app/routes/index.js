@@ -5,11 +5,6 @@ var CardHandler = require(process.cwd() + '/app/controllers/cardHandler.js');
 
 module.exports = function (app, db) {
    var clickHandler = new ClickHandler(db);
-
-   app.route('/')
-      .get(function (req, res) {
-         res.sendFile(process.cwd() + '/public/index.html');
-      });
       
    app.route('/shuffle')
       .get(function (req, res) {
@@ -35,9 +30,9 @@ module.exports = function (app, db) {
          res.json(CardHandler.flop);
       });
       
-   app.route('/getcards')
+   app.route('/getcards/:pw')
       .get(function(req, res){
-         var json = {"flop": CardHandler.flop, "turn": CardHandler.turn, "river": CardHandler.river} 
+         var json = {"owncards": CardHandler.getHand(req.params.pw), "flop": CardHandler.flop, "turn": CardHandler.turn, "river": CardHandler.river} 
          res.json(json)
       })
    
@@ -49,8 +44,9 @@ module.exports = function (app, db) {
       
    app.route('/sethand/:hand/:pw')
       .get(function(req, res){
-         CardHandler.setHandPw(parseInt(req.params.hand), req.params.pw)
-         res.json("set");         
+         //console.log(CardHandler.setHandPw(parseInt(req.params.hand), req.params.pw))
+         if (CardHandler.setHandPw(parseInt(req.params.hand)-1, req.params.pw)) {res.send("set");}
+         else {res.send("couldn't set")}
       })
       
    app.route('/dealTurn')
@@ -73,6 +69,16 @@ module.exports = function (app, db) {
    app.route('/getRiver')
       .get(function (req, res) {
          res.json(CardHandler.river);
+      });
+   
+   app.route('/player/:player')
+      .get(function (req, res) {
+         res.sendFile(process.cwd() + '/public/index.html');
+      });
+   
+   app.route('/dealer')
+      .get(function (req, res) {
+         res.sendFile(process.cwd() + '/public/dealer.html');
       });
 
    app.route('/api/clicks')
