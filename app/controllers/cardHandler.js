@@ -16,6 +16,12 @@ var turn = [];
 
 var river = [];
 
+var vastaavuus = {};
+
+var setHandPw = (hand, pw) => {
+    vastaavuus[pw] = hand
+}
+
 var shuffle = () => {
     packIndex = [0];
     hands.length = 0;
@@ -54,6 +60,10 @@ var dealHands = () => {
     packIndex[0] = packIndex[0] + 2*players[0];
 }
 
+var getHand = (pw) => {
+    return hands[vastaavuus[pw]]
+}
+
 var dealFlop = () => {
     flop.length = 0;
     flop.push(pack[packIndex[0]])// = [, pack[packIndex[0]+1], pack[packIndex[0]+2]]
@@ -87,3 +97,5 @@ module.exports.dealTurn = dealTurn;
 module.exports.turn = turn;
 module.exports.dealRiver = dealRiver;
 module.exports.river = river;
+module.exports.setHandPw = setHandPw;
+module.exports.getHand = getHand;
