@@ -1,8 +1,11 @@
 'use strict';
 
+var socket = io();
+
 function shuffle(){
    $.get("/shuffle", function(data){
       alert(data)
+      socket.emit("refresh");
    })
    $("#flopspan").html("")
    $("#turnspan").html("")
@@ -12,7 +15,9 @@ function shuffle(){
 function deal(){
    var players = parseInt($("#players").val())
    $.get("/deal/" + players, function(data){
+      socket.emit("refresh");
       alert(data)
+
    })
 }
 
@@ -20,24 +25,28 @@ function dealflop(){
    $.get("/dealFlop", function(data) {
       console.log(data)
       toPics("flopspan", data)
+      socket.emit("refresh");
    })
 }
 
 function dealturn(){
    $.get("/dealTurn", (data) => {
          toPics("turnspan", data)
+         socket.emit("refresh");
    })
 }
 
 function dealriver(){
    $.get("/dealRiver", (data) => {
          toPics("riverspan", data)
+         socket.emit("refresh");
    })
 }
 
 function resetPasswords(){
    $.get("/resetpasswords1616", function(data){
       alert(data)
+      socket.emit("resetpw")
    })
 }
 

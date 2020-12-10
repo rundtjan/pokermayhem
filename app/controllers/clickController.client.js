@@ -1,15 +1,16 @@
 'use strict';
 
 (function () {
+
+   var socket = io();
+   socket.on('refresh', refresh)
+   socket.on('reset', resetPw)
    
-   function toText(arr){
-      var text = arr[0]
-      for (var i = 1; i < arr.length; i++){
-         text += ", " + arr[i]
-      }
-      return text
+   function resetPw(){
+      $("#pw").val("")
+      $("#pwbutton").css("display", "inline")
    }
-   
+
    function toPics(id, arr){
       var html = ""
       if (arr == undefined || arr.length == 0){$("#" + id).css("display", "none"); return}
@@ -45,9 +46,5 @@
    $("#pwbutton").click(setPw)
 
    $("#refresh").click(refresh)
-   
-$.get("/getcards/testar", function( data ) {
-   console.log(data)
-});
 
 })();
