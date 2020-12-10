@@ -44,9 +44,10 @@ function dealriver(){
 }
 
 function resetPasswords(){
-   $.get("/resetpasswords1616", function(data){
-      alert(data)
-      socket.emit("resetpw")
+   var pw = $("#pw").val()
+   $.get("/resetpasswords"+pw , function(data){
+      alert("ok")
+      socket.emit(data)
    })
 }
 
@@ -54,7 +55,7 @@ function resetPasswords(){
       var html = ""
       if (arr == undefined || arr.length == 0){$("#" + id).css("display", "none"); return}
       for (var i = 0; i < arr.length; i++){
-         html += '<img src="/public/img/'+ arr[i] +'.PNG" width="40">'
+         html += '<img src="/public/img/'+ arr[i] +'.PNG" width="60">'
       }
       $("#" + id).css("display", "inline")
       $("#" + id).html(html)

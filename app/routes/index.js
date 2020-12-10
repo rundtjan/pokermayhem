@@ -84,7 +84,7 @@ module.exports = function (app) {
    app.route('/resetpasswords1616')
       .get(function (req, res) {
          CardHandler.resetPasswords();
-         res.send("ok");
+         res.send("resetpw");
       });
    
    app.route('/')
