@@ -1,7 +1,9 @@
 'use strict';
 
 function shuffle(){
-   $.get("/shuffle")
+   $.get("/shuffle", function(data){
+      alert(data)
+   })
    $("#flopspan").html("")
    $("#turnspan").html("")
    $("#riverspan").html("")
@@ -9,7 +11,9 @@ function shuffle(){
 
 function deal(){
    var players = parseInt($("#players").val())
-   $.get("/deal/" + players)
+   $.get("/deal/" + players, function(data){
+      alert(data)
+   })
 }
 
 function dealflop(){
@@ -28,6 +32,12 @@ function dealturn(){
 function dealriver(){
    $.get("/dealRiver", (data) => {
          toPics("riverspan", data)
+   })
+}
+
+function resetPasswords(){
+   $.get("/resetpasswords1616", function(data){
+      alert(data)
    })
 }
 

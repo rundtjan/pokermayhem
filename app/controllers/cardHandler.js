@@ -26,6 +26,10 @@ var setHandPw = (hand, pw) => {
     {return false}
 }
 
+var resetPasswords = () => {
+    vastaavuus = {}
+}
+
 var shuffle = () => {
     packIndex = [0];
     hands.length = [];
@@ -109,4 +113,4 @@ module.exports.dealRiver = dealRiver;
 module.exports.river = river;
 module.exports.setHandPw = setHandPw;
 module.exports.getHand = getHand;
-module.exports.getFlop = getFlop;
+module.exports.resetPasswords = resetPasswords;
