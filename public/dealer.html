@@ -3,7 +3,7 @@
 <html>
 
    <head>
-      <title>Clementine.js - The elegant and lightweight full-stack boilerplate.</title>
+      <title>Pokermayhem.</title>
       <link href="http://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet" type="text/css">
       <link href="/public/css/main.css" rel="stylesheet" type="text/css">  
    </head>
@@ -19,19 +19,25 @@
          <button class="btn btn-delete" id="pwbutton" onclick="setPw()">Send</button>
          <br />
          <br />
-         <p>Your cards are: <span id="owncards"></span></p>
-         <p>---------------------------------------------</p>
          <p id="flop">The flop is: <span id="flopspan"></span></p>
          <p id="turn">The turn is: <span id="turnspan"></span></p>
-         <p id="river">The river is: <span id="river"></span></p>
+         <p id="river">The river is: <span id="riverspan"></span></p>
 
          <div class="btn-container">
-            <button type="submit" class="btn btn-add" onclick="getCards()">Refresh</button>
+            <button class="btn btn-primary" onclick="shuffle()">Shuffle</button>
+            <button class="btn btn-add" onclick="deal()">Deal</button> <label for="players">Players:</label>
+            <input type="text" id="players" name="players">
+            <button class="btn btn-success" onclick="dealflop()">Flop</button>
+            <button class="btn btn-warning" onclick="dealturn()">Turn</button>
+            <button class="btn btn-danger" onclick="dealriver()">River</button>
+         </div>
+          <div class="btn-container">
+            <button class="btn btn-danger" onclick="resetPasswords()">Reset passwords</button>
          </div>
 
       </div>
       <script type="text/javascript" src="/controllers/jquery.min.js"></script>  
-      <script type="text/javascript" src="/controllers/clickController.client.js"></script>   
+      <script type="text/javascript" src="/controllers/dealerController.client.js"></script>   
    </body>
 
 </html>

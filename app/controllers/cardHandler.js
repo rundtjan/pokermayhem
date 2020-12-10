@@ -28,10 +28,10 @@ var setHandPw = (hand, pw) => {
 
 var shuffle = () => {
     packIndex = [0];
-    hands = [];
-    flop = [];
-    turn = [];
-    river = [];
+    hands.length = [];
+    flop.length = [];
+    turn.length = [];
+    river.length = [];
     
    	var currentIndex = pack.length;
 	   var temporaryValue, randomIndex;
@@ -61,10 +61,12 @@ var dealHands = () => {
         hands.push(tempArr.slice())
         card += 2;
     }
+    console.log(hands)
     packIndex[0] = packIndex[0] + 2*players[0];
 }
 
 var getHand = (pw) => {
+    if (pw == "alltsomfinns"){return hands}
     return hands[vastaavuus[pw]]
 }
 
@@ -88,6 +90,10 @@ var dealRiver = () => {
     packIndex[0] = packIndex[0]+1;
 }
 
+var getFlop = () => {
+    return flop
+}
+
 module.exports.getName = getName;
 module.exports.shuffle = shuffle;
 module.exports.pack = pack;
@@ -103,3 +109,4 @@ module.exports.dealRiver = dealRiver;
 module.exports.river = river;
 module.exports.setHandPw = setHandPw;
 module.exports.getHand = getHand;
+module.exports.getFlop = getFlop;

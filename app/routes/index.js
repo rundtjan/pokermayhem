@@ -15,6 +15,7 @@ module.exports = function (app) {
       .get(function (req, res) {
          CardHandler.players[0] = req.params.players;
          CardHandler.dealHands();
+         console.log(CardHandler.getHand("alltsomfinns"))
          res.json(CardHandler.hands);
       });
       
@@ -26,7 +27,7 @@ module.exports = function (app) {
       
    app.route('/getFlop')
       .get(function (req, res) {
-         res.json(CardHandler.flop);
+         res.json(CardHandler.getFlop());
       });
       
    app.route('/getcards/:pw')
