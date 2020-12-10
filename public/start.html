@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+
+   <head>
+      <title>Pokermayhem.</title>
+      <link href="http://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet" type="text/css">
+      <link href="/public/css/main.css" rel="stylesheet" type="text/css">  
+   </head>
+
+   <body>
+      <div class="container">
+
+         <div class="btn-container">
+            <button class="btn btn-primary" onclick="player(1)">Player 1</button>
+            <button class="btn btn-add" onclick="player(2)">Player 2</button> 
+            <button class="btn btn-success" onclick="player(3)">Player 3</button>
+            <button class="btn btn-warning" onclick="player(4)">Player 4</button>
+            <button class="btn btn-danger" onclick="player(5)">Player 5</button>
+            <button class="btn btn-danger" onclick="player(6)">Player 6</button>
+            <button class="btn btn-danger" onclick="player(7)">Player 7</button>
+         </div>
+
+      </div>
+      <script src="/socket.io/socket.io.js"></script>
+      <script type="text/javascript" src="/controllers/jquery.min.js"></script>  
+      <script type="text/javascript" src="/controllers/startController.client.js"></script>   
+   </body>
+
+</html>

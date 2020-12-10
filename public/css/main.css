@@ -33,7 +33,7 @@ p {
 }
 
 .btn {	/* Styling for buttons */
-	margin: 0 8px;
+	margin: 4px;
 	color: white;
 	background-color: #00BCD4;
 	display: inline-block;

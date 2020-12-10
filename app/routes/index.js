@@ -86,5 +86,10 @@ module.exports = function (app) {
          CardHandler.resetPasswords();
          res.send("ok");
       });
+   
+   app.route('/')
+      .get(function (req, res) {
+         res.sendFile(process.cwd() + '/public/start.html');
+   });      
 
 };
