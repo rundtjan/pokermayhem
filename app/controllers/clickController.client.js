@@ -15,7 +15,7 @@
       var html = ""
       if (arr == undefined || arr.length == 0){$("#" + id).css("display", "none"); return}
       for (var i = 0; i < arr.length; i++){
-         html += '<img src="/public/img/'+ arr[i] +'.PNG" width="40">'
+         html += '<img src="/public/img/'+ arr[i] +'.PNG" width="60">'
       }
       $("#" + id).css("display", "inline")
       $("#" + id).html(html)
