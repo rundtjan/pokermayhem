@@ -1,8 +1,8 @@
 'use strict';
 
 var express = require('express');
-var mongo = require('mongodb');
 var routes = require('./app/routes/index.js');
+var port = process.env.PORT || 8080;
 
 var app = express();
 
@@ -12,7 +12,7 @@ var app = express();
 
    routes(app);
 
-   app.listen(8080, function () {
+   app.listen(port, function () {
       console.log('Node.js listening on port 8080...');
    });
 
